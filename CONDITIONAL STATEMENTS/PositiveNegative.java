@@ -10,5 +10,6 @@ public class PositiveNegative {
         } else{
             System.out.println("Negative");
         }
+        sc.close();
     }
 }

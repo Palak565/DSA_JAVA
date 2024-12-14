@@ -22,5 +22,6 @@ public class Week {
             case 7: System.out.println("Sunday");
                     break;
         }
+        sc.close();
     }
 }
