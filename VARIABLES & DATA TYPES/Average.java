@@ -8,5 +8,6 @@ public class Average{
         float c = sc.nextFloat();
         float avg = (a+b+c)/3;
         System.out.println("Average of " + a + ", " + b + "and " + c + " = " + avg);
+        sc.close();
     }
 }

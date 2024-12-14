@@ -6,5 +6,6 @@ public class AreaOfSquare {
         float a = sc.nextFloat();
         float area = a*a;
         System.out.println("Area of square with side " + a + "units = " + area + "sq units");
+        sc.close();
     }
 }

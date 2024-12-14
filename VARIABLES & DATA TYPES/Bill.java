@@ -10,5 +10,6 @@ public class Bill {
         float tax = 0.18f * totalcost;
         System.out.println("Total cost w/o tax: Rs" + totalcost);
         System.out.println("Total cost with tax: Rs" + (totalcost + tax));
+        sc.close();
     }
 }
