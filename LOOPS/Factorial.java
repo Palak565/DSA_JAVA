@@ -15,5 +15,6 @@ public class Factorial {
             }
             System.out.println("Factorial = " + fact);
         }
+        sc.close();
     }
 }

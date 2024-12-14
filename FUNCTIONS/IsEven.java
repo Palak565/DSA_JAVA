@@ -12,5 +12,6 @@ public class IsEven {
         System.out.println("Enter a number:");
         int a = sc.nextInt();
         System.out.println("Is " + a + " even? " + isEven(a));
+        sc.close();
     }
 }

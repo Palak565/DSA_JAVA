@@ -12,5 +12,6 @@ public class Average {
         float b = sc.nextFloat();
         float c = sc.nextFloat();
         System.out.println("Average = " + Avg(a, b, c));
+        sc.close();
     }
 }

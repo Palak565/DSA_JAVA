@@ -18,5 +18,6 @@ public class Palindrome {
         System.out.println("Enter a number:");
         int a = sc.nextInt();
         System.out.println("Is " + a + " a palindrome? " + isPalindrome(a));
+        sc.close();
     }
 }
