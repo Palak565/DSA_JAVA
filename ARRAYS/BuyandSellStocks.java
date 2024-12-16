@@ -20,14 +20,10 @@ public class BuyandSellStocks {
 
     }
     public static int MaxProfit (int arr[]){
-        int minPrice = arr[0], n = arr.length, currProfit = 0, maxProfit = 0;
-        int maxPrice = Arraymax(arr, 0, n-1);
-        if (maxPrice - minPrice > 0){
-            currProfit = maxPrice - minPrice;
-            maxProfit = currProfit;
-        }
+        int minPrice, n = arr.length, currProfit = 0, maxProfit = 0;
+        int maxPrice ;
         
-        for (int i = 1; i < n; i++){
+        for (int i = 0; i < n; i++){
             minPrice = Arraymin(arr, 0, i);
             maxPrice = Arraymax(arr, i, n-1);
             currProfit = maxPrice - minPrice;
@@ -40,7 +36,7 @@ public class BuyandSellStocks {
     }
 
     public static void main(String[] args) {
-        int arr[] = {7, 1, 5, 3, 6, 4};
+        int arr[] = {7, 1, 5, 3, 6, 4, 10};
         MaxProfit(arr);
     }
 }

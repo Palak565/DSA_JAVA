@@ -1,24 +1,20 @@
 public class Subarray {
     public static void printSubarray(int arr[]){
         int n = arr.length;
-        for (int i = 0; i < n; i++){
-            for (int k = i; k < n; k++){
-                for (int j = i; j <= k; j++){
-                    if (j != k){
-                        if (j == i){
-                            System.out.print("(");
-                        } 
-                        System.out.print(arr[j] + ", ");
-                         
+        for (int s = 0; s < n; s++){
+            for (int l = s; l < n; l++) {
+                for (int j = s; j <= l; j++){
+                    if (j == s){
+                        System.out.print("(");
+                    } 
+                    System.out.print(arr[j]);
+                    if (j < l){
+                        System.out.print(",");
                     } else {
-                        if (i == k){
-                            System.out.print("(");
-                        }
-                        System.out.print(arr[j] + ")  ");
+                        System.out.print(") ");
                     }
                 }
             }
-            
             System.out.println();
         }
     }

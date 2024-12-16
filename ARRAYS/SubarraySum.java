@@ -51,11 +51,10 @@ public class SubarraySum {
     public static int KadanesAlgo(int arr[]){
         int currSum = 0, maxSum = Integer.MIN_VALUE;
         for (int i = 0; i < arr.length; i++){
-            if (currSum + arr[i] < 0){
+            currSum += arr[i];
+            if (currSum < 0){
                 currSum = 0;
-            } else {
-                currSum += arr[i];
-            }
+            } 
 
             if (maxSum < currSum){
                 maxSum = currSum;

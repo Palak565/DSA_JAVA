@@ -5,7 +5,7 @@ public class TrappingRainwater{
         int rightmax[] = new int[n]; // rightmax boundary
 
         leftmax[0] = heights[0];
-        rightmax[n-1] = heights[n-1];
+        rightmax[n-1] = heights[n-1];d
 
         for (int i = 1; i < n; i++){
             leftmax[i] = Math.max(heights[i], leftmax[i-1]);
