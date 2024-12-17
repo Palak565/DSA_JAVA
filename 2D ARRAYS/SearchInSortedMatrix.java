@@ -29,7 +29,7 @@ public class SearchInSortedMatrix {
     public static void searchinSortedMatrix(int arr[][], int key){
         int n = arr.length, m = arr[0].length;
         int i = 0, j = m-1;
-        while ((i != 0 && j != 0) || (i != n-1 && j != 0) || (i != n-1 && j != m-1)){
+        while (i >= 0 && i < n && j >= 0 && j < m){
             if (key == arr[i][j]){
                 System.out.println(key + " is at index (" + i + "," + j + ")");
                 return;
