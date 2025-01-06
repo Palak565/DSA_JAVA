@@ -1,9 +1,9 @@
 import java.util.Stack;
 import java.util.ArrayList;
-import java.util.LinkedList;
+//import java.util.LinkedList;
 
 class StackWithLinkedList {
-    private LinkedList<Integer> stack = new LinkedList<Integer>();
+    //private LinkedList<Integer> stack = new LinkedList<Integer>();
     class Node {
         int data;
         Node next;
