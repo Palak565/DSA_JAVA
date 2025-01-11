@@ -4,10 +4,11 @@ public class Power {
             return 1;
         }
 
+        int halfpower = power(x, n/2);
         if (n % 2 == 0){
-            return power(x, n/2) * power(x, n/2);
+            return  halfpower * halfpower;
         } else {
-            return x * power(x, n/2) * power(x, n/2);
+            return x * halfpower * halfpower;
         }
     }
 
