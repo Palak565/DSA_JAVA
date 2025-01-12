@@ -16,7 +16,24 @@ public class RemoveDuplicates {
         return ans.toString();
     }
 
+    public static void removeduplicatesII(String str, int idx, StringBuilder sb, boolean[] map){
+        if (idx == str.length()){
+            System.out.println(sb);
+            return;
+        }
+
+        char ch = str.charAt(idx);
+        if (!map[ch-'a']){
+            sb.append(ch);
+            map[ch-'a'] = true;
+        }
+        removeduplicatesII(str, idx+1, sb, map);
+
+    }
+
     public static void main(String[] args) {
+        boolean map[] = new boolean[26];
         System.out.println("Removing duplicates from 'programming', we get '" + removeduplicates("programming") + "'");
+        removeduplicatesII("programming", 0, new StringBuilder(), map);
     }
 }
