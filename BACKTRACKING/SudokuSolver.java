@@ -5,13 +5,14 @@ public class SudokuSolver {
             return true;
         }
 
-        // recursion
+        // updating row, col for next call
         int nextRow = row, nextCol = col+1;
         if (nextCol == 9){
             nextRow = row+1;
             nextCol = 0;
         }
 
+        // recursion
         if (sudoku[row][col] != 0){ // if current cell is already filled, move to the next cell
             return sudokuSolver(sudoku, nextRow, nextCol);
         } else { 
