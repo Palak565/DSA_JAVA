@@ -24,31 +24,34 @@ public class TopView extends BinaryTree{
         while (!q.isEmpty()) {
             Info curr = q.remove();
             if (curr == null){
-                if (!q.isEmpty()){
+                if (q.isEmpty()){
                     break;
                 } else {
                     q.add(null);
                 }
             } 
-            
-            if (!map.containsKey(curr.hd)){
-                map.put(curr.hd, curr.node);
-            }
-
-            if (curr.node.left != null){
-                q.add(new Info(curr.node.left, curr.hd-1));
-                min = Math.min(min, curr.hd-1);
-            }
-
-            if (curr.node.right != null){
-                q.add(new Info(curr.node.right, curr.hd+1));
-                max = Math.max(max, curr.hd+1);
+            else {
+                if (!map.containsKey(curr.hd)){
+                    map.put(curr.hd, curr.node);
+                }
+    
+                if (curr.node.left != null){
+                    q.add(new Info(curr.node.left, curr.hd-1));
+                    min = Math.min(min, curr.hd-1);
+                }
+    
+                if (curr.node.right != null){
+                    q.add(new Info(curr.node.right, curr.hd+1));
+                    max = Math.max(max, curr.hd+1);
+                }
             }
         }
+            
+            
 
         for (int i = min; i <= max; i++){
             if (map.containsKey(i)){
-                System.out.print(map.get(i));
+                System.out.print(map.get(i).data + " ");
             }
         }
     }
