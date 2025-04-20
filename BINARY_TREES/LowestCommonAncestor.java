@@ -41,7 +41,7 @@ public class LowestCommonAncestor extends BinaryTree{
         return false;
     }
 
-    public Node lca2 (Node root, int n1, int n2) {
+    public static Node lca2 (Node root, int n1, int n2) {
         if (root == null || root.data == n1 || root.data == n2) {
             return root;
         }
@@ -69,6 +69,6 @@ public class LowestCommonAncestor extends BinaryTree{
         root.right.left = tree.new Node(6);
         root.right.right = tree.new Node(7);
 
-        System.out.println(tree.lca2(root, 4, 5).data);
+        System.out.println(lca2(root, 4, 5).data);
     }
 }
