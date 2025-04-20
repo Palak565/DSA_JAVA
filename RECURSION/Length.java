@@ -1,13 +1,13 @@
 public class Length {
-    public static int stringLength(String str, int i){
-        if (str.charAt(i) == '\0'){
-            return i + 1;
+    public static int stringLength(String str){
+        if (str.length() == 0){
+            return 0;
         }
 
-        return 1 + stringLength(str, i+1);
+        return stringLength(str.substring(1)) + 1;
     }
 
     public static void main(String[] args) {
-        stringLength("abcde", 0);
+        System.out.println(stringLength("abcde")); 
     }
 }
