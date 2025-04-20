@@ -1,45 +1,48 @@
 import java.util.Scanner;
 
 public class RatInAMaze {
-    public static boolean findPath(int maze[][], int row, int col, int path[][]){
+    public static void findPath(int maze[][], int row, int col, int vis[][], String ans){
         // base case
         if (row == maze.length-1 && col == maze.length-1){
-            path[row][col] = 1;
-            return true;
+            vis[row][col] = 1;
+            printPath(vis);
+            System.out.println(ans);
+            return;
         }
 
-        path[row][col] = 1;
-        // path
         // right
-        if (col + 1 < maze.length && maze[row][col+1] == 1 && path[row][col+1] == 0){
-            if (findPath(maze, row, col+1, path)){
-                return true;
-            }
+        if (col+1 < maze.length && maze[row][col+1] == 1 && vis[row][col+1] == 0){
+            vis[row][col] = 1;
+            findPath(maze, row, col+1, vis, ans + 'R');
+            vis[row][col] = 0;
         }
-
+        
         // down
-        if (row + 1 < maze.length && maze[row+1][col] == 1 && path[row+1][col] == 0){
-            if (findPath(maze, row+1, col, path)){
-                return true;
-            }
+        if (row+1 < maze.length && maze[row+1][col] == 1 && vis[row+1][col] == 0){
+            vis[row][col] = 1;
+            findPath(maze, row+1, col, vis, ans + 'D');
+            vis[row][col] = 0;
         }
 
         // left
-        if (col - 1 >= 0 && maze[row][col-1] == 1 && path[row][col-1] == 0){
-            if (findPath(maze, row, col-1, path)){
-                return true;
-            }
+        if (col-1 >= 0 && maze[row][col-1] == 1 && vis[row][col-1] == 0){
+            vis[row][col] = 1;
+            findPath(maze, row, col-1, vis, ans + 'L');
+            vis[row][col] = 0;
         }
+
+        
 
         // up
-        if (row - 1 >= 0 && maze[row-1][col] == 1 && path[row-1][col] == 0){
-            if (findPath(maze, row-1, col, path)){
-                return true;
-            }
+        if (row-1 >= 0 && maze[row-1][col] == 1 && vis[row-1][col] == 0){
+            vis[row][col] = 1;
+            findPath(maze, row-1, col, vis, ans + 'U');
+            vis[row][col] = 0;
         }
 
-        path[row][col] = 0;
-        return false;
+        
+
+        
     }
 
     public static void printPath(int path[][]){
@@ -68,15 +71,18 @@ public class RatInAMaze {
     }
 
     public static void main(String[] args) {
-        int maze[][] = inputMaze();
+        // int maze[][] = inputMaze();
+        int maze[][] = {{1, 0, 0, 0}, 
+                        {1, 1, 0, 1},
+                        {1, 1, 0, 0},
+                        {0, 1, 1, 1}};
         int path[][] = new int[maze.length][maze[0].length];
-        path[0][0] = 1;
-        if (maze[0][0] == 0 || maze[maze.length][maze[0].length] == 0){
-            System.out.println("No solution for maze!");
+        for (int i = 0; i < path.length; i++){
+            for (int j = 0; j < path.length; j++){
+                path[i][j] = 0;
+            }
         }
-        if (findPath(maze, 0, 0, path)){
-            printPath(path);
-        }
+        findPath(maze, 0, 0, path, "");
         
     }
 }
